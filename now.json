@@ -1,7 +1,6 @@
 {
     "version": 2,
     "builds": [{ "src": "index.js", "use": "@now/node-server" }],
-    "trailingSlash": false,
     "routes": [
         { "src": "/u/(.*)", "dest": "/" },
         {"src": "/css/styles.css", "dest":"/"}
