@@ -17,13 +17,9 @@ app.get('/',(req,res) =>{
     res.sendFile(__dirname+'/templates/index.html')
 })
 
-app.get('/:id', (req, res) => {
+app.get('/u/:id', (req, res) => {
     let id = req.params.id
     res .send({id:id})
-})
-
-app.get('/u', (req,res) => {
-    res.send({message:'u'})
 })
 
 app.post('/url-shortener', (req,res) =>{
