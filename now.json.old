@@ -1,0 +1,21 @@
+{
+    "version": 2,
+    "builds": [{ "src": "index.js", "use": "@now/node-server" }],
+    "routes": [
+      {
+        "src": "/index",
+        "dest": "/index.js",
+        "methods": ["GET"]
+      },
+      {
+        "src": "/name-joiner",
+        "dest": "/index.js",
+        "methods": ["POST"]
+      },
+      {
+        "src": "/css/style.css",
+        "dest": "/static",
+        "methods": ["POST"]
+      }
+    ]
+  }
