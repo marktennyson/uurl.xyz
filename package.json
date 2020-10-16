@@ -4,6 +4,7 @@
   "description": "url shortener service via website(https://uurl.xyz)..",
   "main": "index.js",
   "scripts": {
+    "start" : "node index.js",
     "test": "nodemon index.js"
   },
   "repository": {
