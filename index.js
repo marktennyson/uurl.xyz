@@ -12,7 +12,7 @@ app.get('/',(req,res) =>{
     res.status(200)
     // let data = PayloadMaker({name:"Aniket_Sarkar"})
     // res.send({message:"This is the index page!", data:data})
-    var template = swig.compileFile(__dirname+'/templates/index.html')
+    var template = swig.compileFile('./templates/index.html')
     var output = template(pagename='index page')
     res.send(output)
     // res.sendFile(__dirname+'/templates/index.html')
