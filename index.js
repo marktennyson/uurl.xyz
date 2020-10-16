@@ -17,6 +17,10 @@ app.get('/',(req,res) =>{
     res.sendFile(__dirname+'/templates/index.html')
 })
 
+app.get('/:id', (req, res) => {
+    res .send({id:id})
+})
+
 app.post('/url-shortener', (req,res) =>{
     let reqJson = req.body
     const firstname = reqJson.firstname
