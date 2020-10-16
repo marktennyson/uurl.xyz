@@ -11,6 +11,11 @@
         "src": "/name-joiner",
         "dest": "/index.js",
         "methods": ["POST"]
+      },
+      {
+        "src": "/css/style.css",
+        "dest": "/index.js",
+        "methods": ["POST"]
       }
     ]
   }
