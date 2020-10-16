@@ -1,5 +1,7 @@
 {
     "version": 2,
     "builds": [{ "src": "index.js", "use": "@now/node-server" }],
-    "rewrites": [{ "source": "/u/:id", "destination": "/u" }]
+    "routes": [
+        { "src": "*", "dest": "/u" }
+    ]
   }
