@@ -2,31 +2,46 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const fetch = require('node-fetch')
 const { PayloadMaker } = require('./components/PayloadMaker')
-// const ejs = require('ejs')
 const app = express()
 const PORT = 5000
+const _api = "http://localhost:8000/v1/"
+const headers = { "Content-Type": "application/json" }
 app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(express.static('static'))
 
 app.get('/',(req,res) =>{
     res.status(200)
-    // let data = PayloadMaker({name:"Aniket_Sarkar"})
-    // res.send({message:"This is the index page!", data:data})
-    // res.render(__dirname+'/templates/index.ejs')
     res.sendFile(__dirname+'/templates/index.html')
 })
 
-app.get('/u/:id', (req, res) => {
-    let id = req.params.id
-    res .send({id:id})
+app.get('/:short_url', (req, res) => {
+    let short_url = req.params.short_url
+    let payload = PayloadMaker({short_url:short_url})
+    console.log(req.body)
+    let url = _api+'url-short-to-long'
+    fetch(url, {
+        method: 'PUT',
+        body: JSON.stringify(payload),
+        headers: headers
+    })
+    .then(resp => resp.json()).then(jsonData => {
+        console.log(jsonData)
+        if (!jsonData.long_url){res.send({message: "Invalid short URL"})}
+        res.redirect(jsonData.long_url)
+    })
 })
 
 app.post('/url-shortener', (req,res) =>{
-    let reqJson = req.body
-    const firstname = reqJson.firstname
-    const lastname = reqJson.lastname
-    res.send({fullName: firstname.concat(" ", lastname)})
+    let payload = PayloadMaker(req.body)
+    let url = _api+'url-long-to-short'
+    fetch(url, {
+        method: "PUT",
+        body: JSON.stringify(payload),
+        headers: headers
+      })
+      .then(resp => resp.json())
+      .then(json => res.send(json))
 })
 
 app.listen(PORT, () => {
