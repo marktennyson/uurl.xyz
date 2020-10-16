@@ -1,0 +1,25 @@
+{
+  "name": "uurl.xyz",
+  "version": "1.0.0",
+  "description": "url shortener service via website(https://uurl.xyz)..",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marktennyson/uurl.xyz.git"
+  },
+  "author": "mark tennyson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marktennyson/uurl.xyz/issues"
+  },
+  "homepage": "https://github.com/marktennyson/uurl.xyz#readme",
+  "devDependencies": {
+    "express": "^4.17.1"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
