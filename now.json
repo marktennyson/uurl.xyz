@@ -1,8 +1,8 @@
 {
     "version": 2,
-    "builds": [{ "src": "index.js", "use": "@now/node-server" }],
+    "builds": [{ "src": "index.js", "use": "@now/node-server" },{"src": "./static/*/**","use": "@now/static"}],
     "routes": [
         { "src": "/u/(.*)", "dest": "/" },
-        {"src": "/css/styles.css", "dest":"/"}
-    ]
-  }
+        { "src": "/dev/(css|js)/(.*)","dest": "/static/($1)/($2)"}
+        ]
+}
