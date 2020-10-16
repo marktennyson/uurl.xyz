@@ -13,7 +13,8 @@ app.get('/',(req,res) =>{
     res.status(200)
     // let data = PayloadMaker({name:"Aniket_Sarkar"})
     // res.send({message:"This is the index page!", data:data})
-    res.render(__dirname+'/templates/index.ejs')
+    // res.render(__dirname+'/templates/index.ejs')
+    res.sendFile(__dirname+'/templates/index.html')
 })
 
 app.post('/url-shortener', (req,res) =>{
