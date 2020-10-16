@@ -1,7 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const fetch = require('node-fetch')
-const swig  = require('swig')
 const { PayloadMaker } = require('./components/PayloadMaker')
 const app = express()
 const PORT = 5000
@@ -12,10 +11,7 @@ app.get('/',(req,res) =>{
     res.status(200)
     // let data = PayloadMaker({name:"Aniket_Sarkar"})
     // res.send({message:"This is the index page!", data:data})
-    var template = swig.compileFile('./templates/index.html')
-    var output = template(pagename='index page')
-    res.send(output)
-    // res.sendFile(__dirname+'/templates/index.html')
+    res.sendFile(__dirname+'/templates/index.html')
 })
 
 app.post('/url-shortener', (req,res) =>{
