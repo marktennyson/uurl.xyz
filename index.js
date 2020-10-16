@@ -11,6 +11,13 @@ app.get('/index',(req,res) =>{
     res.send({message:"This is the index page!"})
 })
 
+app.post('/name-joiner', (req,res) =>{
+    let reqJson = req.body
+    const firstname = reqJson.firstname
+    const lastname = reqJson.lastname
+    res.send({fullName: firstname.concat(" ", lastname)})
+})
+
 app.listen(PORT, () => {
     console.log(`Server playing on the super-sonic port :`,PORT)
 })
