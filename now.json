@@ -14,7 +14,7 @@
       },
       {
         "src": "/css/style.css",
-        "dest": "/index.js",
+        "dest": "/static",
         "methods": ["POST"]
       }
     ]
