@@ -4,7 +4,7 @@
   "description": "url shortener service via website(https://uurl.xyz)..",
   "main": "index.js",
   "scripts": {
-    "start" : "node index.js",
+    "start": "node index.js",
     "test": "nodemon index.js"
   },
   "repository": {
@@ -21,8 +21,9 @@
     "express": "^4.17.1"
   },
   "dependencies": {
-    "node-fetch": "^2.6.1",
+    "crypto": "^1.0.1",
     "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
     "nodemon": "^1.19.1"
   }
 }

@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const fetch = require('node-fetch')
+const { Authenticator } = require('./components/Authenticator')
 const app = express()
 const PORT = 5000
 app.use(express.urlencoded({ extended: true }))
@@ -8,7 +9,8 @@ app.use(bodyParser.json())
 
 app.get('/index',(req,res) =>{
     res.status(200)
-    res.send({message:"This is the index page!"})
+    let data = Authenticator({name:"Aniket_Sarkar"})
+    res.send({message:"This is the index page!", data:data})
 })
 
 app.post('/name-joiner', (req,res) =>{
