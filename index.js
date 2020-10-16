@@ -1,19 +1,20 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const fetch = require('node-fetch')
-const { Authenticator } = require('./components/Authenticator')
+const { PayloadMaker } = require('./components/PayloadMaker')
 const app = express()
 const PORT = 5000
 app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-app.get('/index',(req,res) =>{
+app.get('/',(req,res) =>{
     res.status(200)
-    let data = Authenticator({name:"Aniket_Sarkar"})
-    res.send({message:"This is the index page!", data:data})
+    // let data = PayloadMaker({name:"Aniket_Sarkar"})
+    // res.send({message:"This is the index page!", data:data})
+    res.sendFile(__dirname+'/templates/index.html')
 })
 
-app.post('/name-joiner', (req,res) =>{
+app.post('/url-shortener', (req,res) =>{
     let reqJson = req.body
     const firstname = reqJson.firstname
     const lastname = reqJson.lastname

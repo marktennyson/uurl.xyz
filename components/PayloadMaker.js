@@ -1,8 +1,8 @@
 const fs = require('fs')
 const crypto = require('crypto')
-const config = require('./../config.json')
+const config = require('../config.json')
 
-function Authenticator(jsonBody) {
+function PayloadMaker(jsonBody) {
     let api_key = config.api_key_det.api_key
     let api_key_secret = config.api_key_det.api_key_secret
     let body = JSON.stringify(jsonBody)
@@ -12,4 +12,4 @@ function Authenticator(jsonBody) {
     return ({encoded_data:encoded_data})
 }
 
-module.exports = {Authenticator}
+module.exports = {PayloadMaker}
