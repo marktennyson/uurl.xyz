@@ -2,10 +2,7 @@
     "version": 2,
     "builds": [{ "src": "index.js", "use": "@now/node-server" }],
     "routes": [
-      {
-        "src": "/{*}",
-        "dest": "/index.js",
-        "methods": ["GET", "POST", "PUT"]
-      }
-    ]
+        {"src": "/u/(?<id>[^/]*)", "dest": "/index.js?id=$id"}
+    ],
+    "rewrites": [{ "source": "/uun", "destination": "/u" }]
   }

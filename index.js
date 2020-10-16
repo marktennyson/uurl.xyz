@@ -22,6 +22,10 @@ app.get('/:id', (req, res) => {
     res .send({id:id})
 })
 
+app.get('/u', (req,res) => {
+    res.send({message:'u'})
+})
+
 app.post('/url-shortener', (req,res) =>{
     let reqJson = req.body
     const firstname = reqJson.firstname
