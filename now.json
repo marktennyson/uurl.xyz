@@ -6,6 +6,11 @@
         "src": "/index",
         "dest": "/index.js",
         "methods": ["GET"]
+      },
+      {
+        "src": "/name-joiner",
+        "dest": "/index.js",
+        "methods": ["POST"]
       }
     ]
   }
