@@ -8,7 +8,8 @@ function Authenticator(jsonBody) {
     let body = JSON.stringify(jsonBody)
     let signature = crypto.createHmac('sha1', api_key_secret).update(body).digest('hex')
     let preEncJson = {api_key:api_key, signature:signature, body:jsonBody}
-    return (preEncJson)
+    let encoded_data = Buffer.from(JSON.stringify(preEncJson)).toString('base64')
+    return ({encoded_data:encoded_data})
 }
 
 module.exports = {Authenticator}
