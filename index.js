@@ -47,7 +47,8 @@ app.post('/url-shortener', (req,res) =>{
         headers: headers
       })
       .then(resp => resp.json())
-      .then(json => res.sendFile(__dirname+'/templates/index-ext.html', data=json))
+      .then(json => 
+        res.render('index-ext', {long_url: json.long_url, short_url: "https://uurl.xyz/"+json.short_url}))
 })
 
 app.listen(PORT, () => {
