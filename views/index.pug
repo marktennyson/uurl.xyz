@@ -1,0 +1,18 @@
+head
+  title uurl.xyz - The URL Shortener
+  link(rel='stylesheet' href='/css/styles.css' type='text/css')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js')
+.baseDiv
+  div
+    center
+      h1 The URL Shortener
+  .formDiv
+    .container
+      form(action='/url-shortener' method='POST')
+        .col-xs-4
+        .col-xs-4
+          label(for='long_url') Enter your long URL: 
+          input#team_name.form-control(type='text' name='long_url' placeholder='Enter your long URL')
+          input.btn.btn-primary.buttonClass(type='submit' value='OK')

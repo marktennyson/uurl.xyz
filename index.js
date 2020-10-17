@@ -9,10 +9,12 @@ const headers = { "Content-Type": "application/json" }
 app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(express.static('static'))
+app.set('view engine', 'pug')
 
 app.get('/',(req,res) =>{
     res.status(200)
-    res.sendFile(__dirname+'/templates/index.html')
+    res.render('index')
+    // res.sendFile(__dirname+'/templates/index.html')
 })
 
 app.get('/fevicon.ico', (req,res) => {
@@ -43,7 +45,7 @@ app.post('/url-shortener', (req,res) =>{
         headers: headers
       })
       .then(resp => resp.json())
-      .then(json => res.send(json))
+      .then(json => res.sendFile(__dirname+'/templates/index-ext.html', data=json))
 })
 
 app.listen(PORT, () => {

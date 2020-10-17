@@ -1,4 +1,12 @@
 .baseDiv{
-    padding-left: 250px;
-    padding-right: 250px;
+    
+}
+
+.formDiv{
+    padding-top: 70px;
+    text-align: center;
+}
+
+.buttonClass{
+    margin : 10px;
 }
