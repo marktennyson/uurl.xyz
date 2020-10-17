@@ -15,6 +15,10 @@ app.get('/',(req,res) =>{
     res.sendFile(__dirname+'/templates/index.html')
 })
 
+app.get('/fevicon.ico', (req,res) => {
+    res.send('')
+})
+
 app.get('/:short_url', (req, res) => {
     let short_url = req.params.short_url
     let payload = PayloadMaker({short_url:short_url})
@@ -26,7 +30,7 @@ app.get('/:short_url', (req, res) => {
     })
     .then(resp => resp.json()).then(jsonData => {
         if (!jsonData.long_url){res.send({message: "Invalid short URL"})}
-        res.redirect(jsonData.long_url)
+        else {res.redirect(jsonData.long_url)}
     })
 })
 
