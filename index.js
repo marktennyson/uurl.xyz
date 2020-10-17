@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path');
 const bodyParser = require('body-parser')
 const fetch = require('node-fetch')
 const { PayloadMaker } = require('./components/PayloadMaker')
@@ -9,6 +10,7 @@ const headers = { "Content-Type": "application/json" }
 app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(express.static('static'))
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug')
 
 app.get('/',(req,res) =>{
