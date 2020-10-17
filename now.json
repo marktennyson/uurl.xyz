@@ -3,6 +3,6 @@
     "builds": [{ "src": "index.js", "use": "@now/node-server" },{"src": "./static/*/**","use": "@now/static"}],
     "routes": [
         { "src": "/(.*)", "dest": "/" },
-        { "src": "/dev/(css|js)/(.*)","dest": "/static/($1)/($2)"}
+        { "src": "/dev/(css|javascript)/(.*)","dest": "/static/($1)/($2)"}
         ]
 }
