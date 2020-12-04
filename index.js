@@ -15,7 +15,7 @@ app.set('view engine', 'pug')
 
 app.get('/',(req,res) =>{
     res.status(200)
-    res.render('index-new')
+    res.render('index')
     // res.sendFile(__dirname+'/templates/index.html')
 })
 
@@ -51,7 +51,7 @@ app.post('/url-shortener', (req,res) =>{
       })
       .then(resp => resp.json())
       .then(json => 
-        res.render('index-ext-new', {long_url: json.long_url, short_url: "https://uurl.xyz/"+json.short_url}))
+        res.render('index-ext', {long_url: json.long_url, short_url: "https://uurl.xyz/"+json.short_url}))
 })
 
 app.listen(PORT, () => {
