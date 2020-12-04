@@ -15,7 +15,7 @@ app.set('view engine', 'pug')
 
 app.get('/',(req,res) =>{
     res.status(200)
-    res.render('index')
+    res.render('index-new')
     // res.sendFile(__dirname+'/templates/index.html')
 })
 
@@ -39,6 +39,9 @@ app.get('/:short_url', (req, res) => {
 })
 
 app.post('/url-shortener', (req,res) =>{
+    if (! req.body.long_url.includes('http')){
+        res.send({message:'Please enter a valid url.'})
+    }
     let payload = PayloadMaker(req.body)
     let url = _api+'url-long-to-short'
     fetch(url, {
@@ -48,7 +51,7 @@ app.post('/url-shortener', (req,res) =>{
       })
       .then(resp => resp.json())
       .then(json => 
-        res.render('index-ext', {long_url: json.long_url, short_url: "https://uurl.xyz/"+json.short_url}))
+        res.render('index-ext-new', {long_url: json.long_url, short_url: "https://uurl.xyz/"+json.short_url}))
 })
 
 app.listen(PORT, () => {
